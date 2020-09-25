@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./css/main.css";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { getTranslationLanguages } from "../../../actions/shared";
+import TranslationPanel from "./TranslationPanel";
 const Translate = () => {
   const dispatch = useDispatch();
 
@@ -13,6 +14,14 @@ const Translate = () => {
     (state) => state.translationLanguagesReducer,
     shallowEqual
   );
+
+  const fromLanguageHandler = (language) => {
+    console.log(`From language ${language}`);
+  };
+  const toLanguageHandler = (language) => {
+    console.log(`To language ${language}`);
+  };
+
   return (
     <div className="main-container">
       <header>
@@ -29,6 +38,24 @@ const Translate = () => {
         </p>
       </section>
       <section>{loading && <div>Cargando</div>}</section>
+      <section>
+        {!loading && (
+          <TranslationPanel
+            languages={data}
+            label={"From Language"}
+            handlerLanguage={fromLanguageHandler}
+          />
+        )}
+      </section>
+      <section>
+        {!loading && (
+          <TranslationPanel
+            languages={data}
+            label={"To Language"}
+            handlerLanguage={toLanguageHandler}
+          />
+        )}
+      </section>
     </div>
   );
 };
