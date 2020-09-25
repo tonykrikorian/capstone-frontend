@@ -1,3 +1,3 @@
-import { combineReducers } from 'redux'
-
-export default combineReducers({});
+import { combineReducers } from "redux";
+import translationLanguagesReducer from "./translationLanguagesReducer";
+export default combineReducers({ translationLanguagesReducer });
