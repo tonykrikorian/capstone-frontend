@@ -5,12 +5,6 @@ import {
   GET_LANGUAGES_FAILURE,
 } from "../types/translationLanguageTypes";
 
-import {
-  MAKE_TRANSLATION_INIT,
-  MAKE_TRANSLATION_SUCCESS,
-  MAKE_TRANSLATION_FAILURE,
-} from "../types/translationTypes";
-
 export const getTranslationLanguages = () => async (dispatch) => {
   dispatch({ type: GET_LANGUAGES_INIT });
   axios
@@ -24,5 +18,3 @@ export const getTranslationLanguages = () => async (dispatch) => {
       dispatch({ type: GET_LANGUAGES_FAILURE, payload: error });
     });
 };
-
-export const translateText = () => async (dispatch) => {};

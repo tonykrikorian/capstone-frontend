@@ -5,6 +5,7 @@ import { getTranslationLanguages } from "../../../actions/shared";
 import TranslationPanel from "./TranslationPanel";
 import TranslationText from "./TranslationText";
 import { Button } from "@material-ui/core";
+import { translateTextAction } from "../../../actions/TranslationAction";
 const Translate = () => {
   const [fromLanguage, setFromLanguage] = useState("");
   const [toLanguage, setToLanguage] = useState("");
@@ -17,6 +18,11 @@ const Translate = () => {
 
   const { data, loading } = useSelector(
     (state) => state.translationLanguagesReducer,
+    shallowEqual
+  );
+
+  const { data: translationResult, loading: loadingTranslation } = useSelector(
+    (state) => state.translationReducer,
     shallowEqual
   );
 
@@ -73,11 +79,20 @@ const Translate = () => {
           translationTextHandler={translationTextHandler}
         />
       </section>
-      {/* <section>
-        <TranslationText label={"Translated text"} disabled={true} />
-      </section> */}
       <section>
-        <Button variant={"outlined"} color={"primary"} onClick={() => {}}>
+        {/* <TranslationText label={"Translated text"} disabled={true} /> */}
+        {loadingTranslation ? <span>Traduciendo.....</span> : ""}
+      </section>
+      <section>
+        <Button
+          variant={"outlined"}
+          color={"primary"}
+          onClick={() => {
+            dispatch(
+              translateTextAction(translationText, fromLanguage, toLanguage)
+            );
+          }}
+        >
           Translate
         </Button>
       </section>
