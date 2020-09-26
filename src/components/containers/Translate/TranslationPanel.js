@@ -16,8 +16,8 @@ const TranslationPanel = ({ languages, handlerLanguage, label }) => {
           size={"small"}
           onChange={(event, value) => {
             console.log(value);
-            const { code } = value;
-            setLanguage(code);
+
+            setLanguage(value.code);
           }}
           options={languages}
           getOptionLabel={(option) => {

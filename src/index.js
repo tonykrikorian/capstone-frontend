@@ -5,10 +5,19 @@ import App from "./components/App";
 import * as serviceWorker from "./serviceWorker";
 import middleware from "./middleware";
 import reducer from "./reducers";
-import { createStore } from "redux";
+import { createStore, compose } from "redux";
 import { Provider } from "react-redux";
 
-const store = createStore(reducer, middleware);
+const store = createStore(
+  reducer,
+  compose(
+    middleware,
+    typeof window === "object" &&
+      typeof window.__REDUX_DEVTOOLS_EXTENSION__ !== "undefined"
+      ? window.__REDUX_DEVTOOLS_EXTENSION__()
+      : (f) => f
+  )
+);
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

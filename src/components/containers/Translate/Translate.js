@@ -6,6 +6,9 @@ import TranslationPanel from "./TranslationPanel";
 import TranslationText from "./TranslationText";
 import { Button } from "@material-ui/core";
 const Translate = () => {
+  const [fromLanguage, setFromLanguage] = useState("");
+  const [toLanguage, setToLanguage] = useState("");
+
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,9 +21,11 @@ const Translate = () => {
   );
 
   const fromLanguageHandler = (language) => {
+    setFromLanguage(language);
     console.log(`From language ${language}`);
   };
   const toLanguageHandler = (language) => {
+    setToLanguage(language);
     console.log(`To language ${language}`);
   };
 
