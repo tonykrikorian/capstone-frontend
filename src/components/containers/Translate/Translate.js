@@ -84,7 +84,10 @@ const Translate = () => {
         {loadingTranslation ? (
           <span>Traduciendo.....</span>
         ) : (
-          <TranslationResult label={"Translated text"} />
+          <TranslationResult
+            label={"Translated text"}
+            translationResult={translationResult}
+          />
         )}
       </section>
       <section>

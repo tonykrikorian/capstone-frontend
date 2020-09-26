@@ -25,7 +25,11 @@ export const translateTextAction = (
       {}
     )
     .then((response) => {
-      dispatch({ type: MAKE_TRANSLATION_SUCCESS, payload: response.data });
+      console.log(`response API: ${response.data}`);
+      dispatch({
+        type: MAKE_TRANSLATION_SUCCESS,
+        payload: response.data[0].translations[0],
+      });
     })
     .catch((error) =>
       dispatch({ type: MAKE_TRANSLATION_FAILURE, payload: error })

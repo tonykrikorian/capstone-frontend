@@ -1,9 +1,22 @@
-import React, { useState, useEffect } from "react";
-
-const ranslationResult = () => {
+import React from "react";
+import { TextField } from "@material-ui/core";
+const ranslationResult = ({ translationResult, label }) => {
   return (
     <div>
-      <h1>Hola</h1>
+      <div>
+        <h2>{label}</h2>
+      </div>
+      <div>
+        <TextField
+          disabled
+          className="translation-text"
+          variant={"outlined"}
+          value={translationResult.text}
+          multiline={true}
+          rows={5}
+          rowsMax={20}
+        />
+      </div>
     </div>
   );
 };
