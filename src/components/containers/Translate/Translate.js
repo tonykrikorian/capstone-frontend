@@ -8,7 +8,7 @@ import { Button } from "@material-ui/core";
 const Translate = () => {
   const [fromLanguage, setFromLanguage] = useState("");
   const [toLanguage, setToLanguage] = useState("");
-
+  const [translationText, setTranslationText] = useState("");
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -29,6 +29,10 @@ const Translate = () => {
     console.log(`To language ${language}`);
   };
 
+  const translationTextHandler = (text) => {
+    console.log(`Translation text: ${text}`);
+    setTranslationText(text);
+  };
   return (
     <div className="main-container">
       <header>
@@ -64,11 +68,14 @@ const Translate = () => {
         )}
       </section>
       <section>
-        <TranslationText disabled={false} />
+        <TranslationText
+          disabled={false}
+          translationTextHandler={translationTextHandler}
+        />
       </section>
-      <section>
+      {/* <section>
         <TranslationText label={"Translated text"} disabled={true} />
-      </section>
+      </section> */}
       <section>
         <Button variant={"outlined"} color={"primary"}>
           Translate
