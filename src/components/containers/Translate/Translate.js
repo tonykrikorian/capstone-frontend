@@ -10,6 +10,7 @@ const Translate = () => {
   const [fromLanguage, setFromLanguage] = useState("");
   const [toLanguage, setToLanguage] = useState("");
   const [translationText, setTranslationText] = useState("");
+  const [enableLanguageSelector, setEnableLanguageSelector] = useState(true);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -40,6 +41,7 @@ const Translate = () => {
   const translationTextHandler = (text) => {
     console.log(`Translation text: ${text}`);
     setTranslationText(text);
+    setEnableLanguageSelector(String(text).length < 5);
   };
   return (
     <div className="main-container">
@@ -63,6 +65,7 @@ const Translate = () => {
             languages={data}
             label={"From Language"}
             handlerLanguage={fromLanguageHandler}
+            enableLanguageSelector={false}
           />
         )}
       </section>
@@ -72,6 +75,7 @@ const Translate = () => {
             languages={data}
             label={"To Language"}
             handlerLanguage={toLanguageHandler}
+            enableLanguageSelector={enableLanguageSelector}
           />
         )}
       </section>

@@ -2,7 +2,12 @@ import React, { useState, useEffect } from "react";
 import { TextField } from "@material-ui/core";
 import { Autocomplete } from "@material-ui/lab";
 
-const TranslationPanel = ({ languages, handlerLanguage, label }) => {
+const TranslationPanel = ({
+  languages,
+  handlerLanguage,
+  label,
+  enableLanguageSelector,
+}) => {
   const [language, setLanguage] = useState({});
 
   useEffect(() => {
@@ -13,6 +18,7 @@ const TranslationPanel = ({ languages, handlerLanguage, label }) => {
       <h2>{label}</h2>
       <div>
         <Autocomplete
+          disabled={enableLanguageSelector}
           size={"small"}
           onChange={(event, value) => {
             console.log(value);
