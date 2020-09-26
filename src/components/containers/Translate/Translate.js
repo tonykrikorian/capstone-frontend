@@ -6,6 +6,7 @@ import TranslationPanel from "./TranslationPanel";
 import TranslationText from "./TranslationText";
 import { Button } from "@material-ui/core";
 import { translateTextAction } from "../../../actions/TranslationAction";
+import TranslationResult from "./TranslationResult";
 const Translate = () => {
   const [fromLanguage, setFromLanguage] = useState("");
   const [toLanguage, setToLanguage] = useState("");
@@ -80,8 +81,11 @@ const Translate = () => {
         />
       </section>
       <section>
-        {/* <TranslationText label={"Translated text"} disabled={true} /> */}
-        {loadingTranslation ? <span>Traduciendo.....</span> : ""}
+        {loadingTranslation ? (
+          <span>Traduciendo.....</span>
+        ) : (
+          <TranslationResult label={"Translated text"} />
+        )}
       </section>
       <section>
         <Button
