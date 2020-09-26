@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Translate from "./Translate/Translate";
 const MainContainer = () => {
   return <Translate />;

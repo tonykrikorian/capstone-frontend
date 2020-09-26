@@ -1,19 +1,5 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Introduction
-
-Esta plantilla para proyectos ReactJS esta basada en el boilerplate de facebook "create-react-app", contiene la estructura de directorios para trabajar con redux, asi como una serie de librerias estandar.
-
-## Paquetes y librerias presentes
-
-1. Redux : Redux store
-2. Redux thunk : Middleware Redux Asyncrono
-3. PropTypes: Asigna tipos de datos a las props que recibe un componente
-4. eslint: Ayuda a escribir codigo con estilo y reglas estandar de JS
-5. react-redux: Permite conectar componentes react al store de redux
-6. Axios: Permite hacer HTTP Request Asyncronos al server
-7. prettier: Sirve para formatear el codigo
-8. react-router-dom: Enrutamiento basado en componentes
 ## Available Scripts
 
 In the project directory, you can run:
