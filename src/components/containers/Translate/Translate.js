@@ -3,6 +3,8 @@ import "./css/main.css";
 import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { getTranslationLanguages } from "../../../actions/shared";
 import TranslationPanel from "./TranslationPanel";
+import TranslationText from "./TranslationText";
+import { Button } from "@material-ui/core";
 const Translate = () => {
   const dispatch = useDispatch();
 
@@ -55,6 +57,17 @@ const Translate = () => {
             handlerLanguage={toLanguageHandler}
           />
         )}
+      </section>
+      <section>
+        <TranslationText />
+      </section>
+      <section>
+        <TranslationText label={"Translated text"} />
+      </section>
+      <section>
+        <Button variant={"outlined"} color={"primary"}>
+          Translate
+        </Button>
       </section>
     </div>
   );

@@ -13,6 +13,7 @@ const TranslationPanel = ({ languages, handlerLanguage, label }) => {
       <h2>{label}</h2>
       <div>
         <Autocomplete
+          size={"small"}
           onChange={(event, value) => {
             console.log(value);
             const { code } = value;

@@ -6,7 +6,7 @@
 }
 
 .language-box {
-  width: 100%;
+  width: 40%;
   height: 30px;
   float: left;
   margin: 15px;
@@ -14,4 +14,9 @@
 .clear-fix {
   float: none;
   clear: both;
+}
+
+.translation-text {
+  width: 50%;
+  margin: 20%;
 }
