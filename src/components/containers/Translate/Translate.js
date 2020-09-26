@@ -4,7 +4,6 @@ import { useDispatch, useSelector, shallowEqual } from "react-redux";
 import { getTranslationLanguages } from "../../../actions/shared";
 import TranslationPanel from "./TranslationPanel";
 import TranslationText from "./TranslationText";
-import { Button } from "@material-ui/core";
 import { translateTextAction } from "../../../actions/TranslationAction";
 import TranslationResult from "./TranslationResult";
 const Translate = () => {
@@ -32,8 +31,10 @@ const Translate = () => {
     console.log(`From language ${language}`);
   };
   const toLanguageHandler = (language) => {
-    setToLanguage(language);
+    //setToLanguage(language);
     console.log(`To language ${language}`);
+
+    dispatch(translateTextAction(translationText, fromLanguage, language));
   };
 
   const translationTextHandler = (text) => {
@@ -89,19 +90,6 @@ const Translate = () => {
             translationResult={translationResult}
           />
         )}
-      </section>
-      <section>
-        <Button
-          variant={"outlined"}
-          color={"primary"}
-          onClick={() => {
-            dispatch(
-              translateTextAction(translationText, fromLanguage, toLanguage)
-            );
-          }}
-        >
-          Translate
-        </Button>
       </section>
     </div>
   );
