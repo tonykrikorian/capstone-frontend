@@ -85,15 +85,12 @@ const Translate = () => {
           translationTextHandler={translationTextHandler}
         />
       </section>
+      <div>{loadingTranslation && <span>Traduciendo.....</span>}</div>
       <section>
-        {loadingTranslation ? (
-          <span>Traduciendo.....</span>
-        ) : (
-          <TranslationResult
-            label={"Translated text"}
-            translationResult={translationResult}
-          />
-        )}
+        <TranslationResult
+          label={"Translated text"}
+          translationResult={translationResult}
+        />
       </section>
     </div>
   );
