@@ -1,3 +1,8 @@
 import { combineReducers } from "redux";
 import translationLanguagesReducer from "./translationLanguagesReducer";
-export default combineReducers({ translationLanguagesReducer });
+import translationReducer from "./translationReducer";
+
+export default combineReducers({
+  translationLanguagesReducer,
+  translationReducer,
+});

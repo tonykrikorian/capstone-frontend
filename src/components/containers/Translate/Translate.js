@@ -77,7 +77,7 @@ const Translate = () => {
         <TranslationText label={"Translated text"} disabled={true} />
       </section> */}
       <section>
-        <Button variant={"outlined"} color={"primary"}>
+        <Button variant={"outlined"} color={"primary"} onClick={() => {}}>
           Translate
         </Button>
       </section>
