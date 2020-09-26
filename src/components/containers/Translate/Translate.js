@@ -59,10 +59,10 @@ const Translate = () => {
         )}
       </section>
       <section>
-        <TranslationText />
+        <TranslationText disabled={false} />
       </section>
       <section>
-        <TranslationText label={"Translated text"} />
+        <TranslationText label={"Translated text"} disabled={true} />
       </section>
       <section>
         <Button variant={"outlined"} color={"primary"}>

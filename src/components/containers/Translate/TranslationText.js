@@ -1,7 +1,7 @@
 import { Divider, TextareaAutosize, TextField } from "@material-ui/core";
 import React, { useState, useEffect } from "react";
 
-const TranslationText = ({ label }) => {
+const TranslationText = ({ disabled, label }) => {
   const [textTranslation, setTextTranslation] = useState("");
   return (
     <div>
@@ -10,6 +10,7 @@ const TranslationText = ({ label }) => {
       </div>
       <div>
         <TextField
+          disabled={disabled}
           className="translation-text"
           placeholder={"Enter your text"}
           variant={"outlined"}
