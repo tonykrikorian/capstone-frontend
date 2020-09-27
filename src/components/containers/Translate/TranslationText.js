@@ -10,10 +10,11 @@ const TranslationText = ({ disabled, translationTextHandler, label }) => {
   return (
     <div>
       <div>
-        <h2>{label}</h2>
+        <h3>{label}</h3>
       </div>
       <div>
         <TextField
+          fullWidth
           name="texto01"
           disabled={disabled}
           className="translation-text"

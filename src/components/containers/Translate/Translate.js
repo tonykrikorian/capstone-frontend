@@ -48,7 +48,7 @@ const Translate = () => {
       <header>
         <h1>Udacity Capstone project translator</h1>
       </header>
-      <section>
+      <div>
         <p>
           This is the Udacity capstone project, this application was building
           reactJS Frontend and NodeJS Backend
@@ -57,9 +57,9 @@ const Translate = () => {
           The app is deployed in Docker Containers in an AWS EKS Kubernetes
           Cluster
         </p>
-      </section>
-      <section>{loading && <div>Cargando</div>}</section>
-      <section>
+      </div>
+      <div>{loading && <div>Cargando</div>}</div>
+      <div className="language-box">
         {!loading && (
           <TranslationPanel
             languages={data}
@@ -68,8 +68,8 @@ const Translate = () => {
             enableLanguageSelector={false}
           />
         )}
-      </section>
-      <section>
+      </div>
+      <div className="language-box">
         {!loading && (
           <TranslationPanel
             languages={data}
@@ -78,20 +78,25 @@ const Translate = () => {
             enableLanguageSelector={enableLanguageSelector}
           />
         )}
-      </section>
-      <section>
+      </div>
+      <div className="clear-fix"></div>
+
+      <div className="language-box">
         <TranslationText
+          label={"Text to translate"}
           disabled={false}
           translationTextHandler={translationTextHandler}
         />
-      </section>
-      <div>{loadingTranslation && <span>Traduciendo.....</span>}</div>
-      <section>
+      </div>
+
+      <div className="language-box">
         <TranslationResult
           label={"Translated text"}
           translationResult={translationResult}
+          loadingTranslation={loadingTranslation}
         />
-      </section>
+      </div>
+      <div className="clear-fix"></div>
     </div>
   );
 };

@@ -1,20 +1,22 @@
 import React from "react";
 import { TextField } from "@material-ui/core";
-const ranslationResult = ({ translationResult, label }) => {
+const ranslationResult = ({ translationResult, label, loadingTranslation }) => {
   return (
     <div>
       <div>
-        <h2>{label}</h2>
+        <h3>{label}</h3>
       </div>
       <div>
         <TextField
-          disabled
+          fullWidth
+          aria-readonly
           className="translation-text"
           variant={"outlined"}
           value={translationResult.text}
           multiline={true}
           rows={5}
           rowsMax={20}
+          placeholder={loadingTranslation ? "Traduciendo......" : ""}
         />
       </div>
     </div>

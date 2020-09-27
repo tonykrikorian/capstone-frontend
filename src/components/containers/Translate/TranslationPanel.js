@@ -14,28 +14,26 @@ const TranslationPanel = ({
     handlerLanguage(language);
   }, [language]);
   return (
-    <div>
-      <h2>{label}</h2>
-      <div>
-        <Autocomplete
-          disabled={enableLanguageSelector}
-          size={"small"}
-          onChange={(event, value) => {
-            console.log(value);
+    <>
+      <h3>{label}</h3>
+      <Autocomplete
+        fullWidth
+        disabled={enableLanguageSelector}
+        size={"small"}
+        onChange={(event, value) => {
+          console.log(value);
 
-            setLanguage(value?.code);
-          }}
-          options={languages}
-          getOptionLabel={(option) => {
-            return `${option.name} (${option.nativeName})`;
-          }}
-          style={{ width: 300 }}
-          renderInput={(params) => (
-            <TextField {...params} label={label} variant="outlined" />
-          )}
-        />
-      </div>
-    </div>
+          setLanguage(value?.code);
+        }}
+        options={languages}
+        getOptionLabel={(option) => {
+          return `${option.name} (${option.nativeName})`;
+        }}
+        renderInput={(params) => (
+          <TextField {...params} label={label} variant="outlined" />
+        )}
+      />
+    </>
   );
 };
 
