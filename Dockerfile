@@ -1,5 +1,5 @@
 #Stage build the application
-FROM Node:10.22.1 AS build
+FROM node:10.22.1 AS build
 RUN mkdir /app
 WORKDIR /app
 COPY . /app
