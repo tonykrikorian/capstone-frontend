@@ -31,11 +31,13 @@ const Translate = () => {
     setFromLanguage(language);
     console.log(`From language ${language}`);
   };
-  const toLanguageHandler = (language) => {
-    //setToLanguage(language);
-    console.log(`To language ${language}`);
+  const toLanguageHandler = (toLanguage2) => {
+    setToLanguage(toLanguage2);
+    console.log(`To language ${toLanguage2},toLanguage ${toLanguage}`);
 
-    dispatch(translateTextAction(translationText, fromLanguage, language));
+    if (toLanguage2) {
+      dispatch(translateTextAction(translationText, fromLanguage, toLanguage2));
+    }
   };
 
   const translationTextHandler = (text) => {
@@ -92,7 +94,9 @@ const Translate = () => {
       <div className="language-box">
         <TranslationResult
           label={"Translated text"}
-          translationResult={translationResult}
+          translationResult={
+            toLanguage !== "undefined" ? translationResult : ""
+          }
           loadingTranslation={loadingTranslation}
         />
       </div>
