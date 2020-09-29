@@ -2,4 +2,4 @@
 docker login
 
 #Subir la imagen
-docker push tkrikoriam/translation-frontend:v2
+docker push tkrikoriam/translation-frontend:v3
