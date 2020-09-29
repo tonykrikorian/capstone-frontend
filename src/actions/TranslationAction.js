@@ -20,7 +20,7 @@ export const translateTextAction = (
   dispatch({ type: MAKE_TRANSLATION_INIT });
   axios
     .post(
-      "http://localhost:3500/api/translate",
+      process.env.URL_BACKEND_TRANSLATE,
       translateTextRequest(message, fromLanguage, toLanguage),
       {}
     )
