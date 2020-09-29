@@ -8,7 +8,7 @@ import {
 export const getTranslationLanguages = () => async (dispatch) => {
   dispatch({ type: GET_LANGUAGES_INIT });
   axios
-    .get("http://localhost:3500/api/translate/languages")
+    .get(process.env.URL_BACKEND_GET_LANGUAGES)
     .then((response) => {
       console.log(response);
       dispatch({ type: GET_LANGUAGES_SUCCESS, payload: response.data });
