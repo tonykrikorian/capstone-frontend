@@ -1,14 +1,19 @@
 #Stage build the application
+
 FROM node:10.22.1 AS build
-ARG url_backend_get_languages
-ARG url_backend_translate
+ARG getlanguages
+ARG urltranslate
 RUN mkdir /app
 WORKDIR /app
+
+
+RUN echo "${getlanguages}"
+RUN echo "${urltranslate}"
+
+ENV REACT_APP_GET_LANGUAGES=$getlanguages
+ENV REACT_APP_TRANSLATE=$urltranslate
+
 COPY . /app
-
-ENV URL_BACKEND_GET_LANGUAGES=$url_backend_get_languages
-ENV URL_BACKEND_TRANSLATE=$url_backend_translate
-
 RUN npm install --silent
 RUN npm install react-scripts -g --silent
 RUN npm run build
