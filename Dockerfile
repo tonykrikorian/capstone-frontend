@@ -7,7 +7,7 @@ WORKDIR /app
 COPY . /app
 
 ENV URL_BACKEND_GET_LANGUAGES=$url_backend_get_languages
-ARG URL_BACKEND_TRANSLATE=$url_backend_translate
+ENV URL_BACKEND_TRANSLATE=$url_backend_translate
 
 RUN npm install --silent
 RUN npm install react-scripts -g --silent
