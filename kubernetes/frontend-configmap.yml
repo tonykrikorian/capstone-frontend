@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: frontend-configmap
+  namespace: frontend-translator
+  labels:
+    app: frontend-translator
+data:
+  getlanguages: internal-service.microservices/api/translate/languages
+  urltranslate: internal-service.microservices/api/translate
