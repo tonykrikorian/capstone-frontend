@@ -7,6 +7,7 @@ import {
 
 export const getTranslationLanguages = () => async (dispatch) => {
   dispatch({ type: GET_LANGUAGES_INIT });
+
   axios
     .get(process.env.REACT_APP_GET_LANGUAGES)
     .then((response) => {
