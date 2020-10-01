@@ -6,5 +6,5 @@ metadata:
   labels:
     app: frontend-translator
 data:
-  getlanguages: internal-service.microservices/api/translate/languages
-  urltranslate: internal-service.microservices/api/translate
+  getlanguages: http://internal-service.microservices:4000/api/translate/languages
+  urltranslate: http://internal-service.microservices:4000/api/translate
