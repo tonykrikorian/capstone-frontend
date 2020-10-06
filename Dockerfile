@@ -1,8 +1,8 @@
 #Stage build the application
 
 FROM node:10.22.1 AS build
-# ARG getlanguages
-# ARG urltranslate
+ARG getlanguages
+ARG urltranslate
 RUN mkdir /app
 WORKDIR /app
 
@@ -10,8 +10,8 @@ WORKDIR /app
 # RUN echo "${getlanguages}"
 # RUN echo "${urltranslate}"
 
-ENV REACT_APP_GET_LANGUAGES ""
-ENV REACT_APP_TRANSLATE ""
+ENV REACT_APP_GET_LANGUAGES=$getlanguages
+ENV REACT_APP_TRANSLATE=$urltranslate
 
 COPY . /app
 RUN npm install --silent
