@@ -57,7 +57,7 @@ pipeline {
                    aws eks --region us-west-2 update-kubeconfig --name EKSUdacityCapstone
                 '''
                 sh '''
-                    kubectl set image deployment.apps/frontend-deployment frontend-deployment=321304165861.dkr.ecr.us-west-2.amazonaws.com/translation-frontend:v${BUILD_NUMBER} -n frontend-translator 
+                    kubectl set image deployment.apps/frontend-deployment frontend-translator=321304165861.dkr.ecr.us-west-2.amazonaws.com/translation-frontend:v${BUILD_NUMBER} -n frontend-translator 
                     
                  '''
 
