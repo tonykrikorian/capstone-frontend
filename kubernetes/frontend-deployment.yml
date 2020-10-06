@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend-translator
-          image: tkrikoriam/translation-frontend:v5
+          image: tkrikoriam/translation-frontend:v7
           ports:
             - containerPort: 80
           env:
@@ -30,3 +30,8 @@ spec:
                 configMapKeyRef:
                   name: frontend-configmap
                   key: urltranslate
+            - name: NODE_ENV
+              valueFrom:
+                configMapKeyRef:
+                  name: frontend-configmap
+                  key: node_env

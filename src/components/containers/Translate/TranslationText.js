@@ -1,8 +1,8 @@
-import { Divider, TextareaAutosize, TextField } from "@material-ui/core";
-import React, { useState, useEffect } from "react";
+import { Divider, TextareaAutosize, TextField } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
 
 const TranslationText = ({ disabled, translationTextHandler, label }) => {
-  const [textTranslation, setTextTranslation] = useState("");
+  const [textTranslation, setTextTranslation] = useState('');
 
   useEffect(() => {
     translationTextHandler(textTranslation);
@@ -18,10 +18,10 @@ const TranslationText = ({ disabled, translationTextHandler, label }) => {
           name="texto01"
           disabled={disabled}
           className="translation-text"
-          placeholder={"Enter your text"}
-          variant={"outlined"}
+          placeholder="Enter your text"
+          variant="outlined"
           value={textTranslation}
-          multiline={true}
+          multiline
           rows={5}
           rowsMax={20}
           onChange={(event) => {

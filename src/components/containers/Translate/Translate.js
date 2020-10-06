@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
-import "./css/main.css";
-import { useDispatch, useSelector, shallowEqual } from "react-redux";
-import { getTranslationLanguages } from "../../../actions/shared";
-import TranslationPanel from "./TranslationPanel";
-import TranslationText from "./TranslationText";
-import { translateTextAction } from "../../../actions/TranslationAction";
-import TranslationResult from "./TranslationResult";
+import React, { useState, useEffect } from 'react';
+import './css/main.css';
+import { useDispatch, useSelector, shallowEqual } from 'react-redux';
+import { getTranslationLanguages } from '../../../actions/shared';
+import TranslationPanel from './TranslationPanel';
+import TranslationText from './TranslationText';
+import { translateTextAction } from '../../../actions/TranslationAction';
+import TranslationResult from './TranslationResult';
+
 const Translate = () => {
-  const [fromLanguage, setFromLanguage] = useState("");
-  const [toLanguage, setToLanguage] = useState("");
-  const [translationText, setTranslationText] = useState("");
+  const [fromLanguage, setFromLanguage] = useState('');
+  const [toLanguage, setToLanguage] = useState('');
+  const [translationText, setTranslationText] = useState('');
   const [enableLanguageSelector, setEnableLanguageSelector] = useState(true);
   const dispatch = useDispatch();
 
@@ -19,12 +20,12 @@ const Translate = () => {
 
   const { data, loading } = useSelector(
     (state) => state.translationLanguagesReducer,
-    shallowEqual
+    shallowEqual,
   );
 
   const { data: translationResult, loading: loadingTranslation } = useSelector(
     (state) => state.translationReducer,
-    shallowEqual
+    shallowEqual,
   );
 
   const fromLanguageHandler = (language) => {
@@ -65,7 +66,7 @@ const Translate = () => {
         {!loading && (
           <TranslationPanel
             languages={data}
-            label={"From Language"}
+            label="From Language"
             handlerLanguage={fromLanguageHandler}
             enableLanguageSelector={false}
           />
@@ -75,17 +76,17 @@ const Translate = () => {
         {!loading && (
           <TranslationPanel
             languages={data}
-            label={"To Language"}
+            label="To Language"
             handlerLanguage={toLanguageHandler}
             enableLanguageSelector={enableLanguageSelector}
           />
         )}
       </div>
-      <div className="clear-fix"></div>
+      <div className="clear-fix" />
 
       <div className="language-box">
         <TranslationText
-          label={"Text to translate"}
+          label="Text to translate"
           disabled={false}
           translationTextHandler={translationTextHandler}
         />
@@ -93,14 +94,14 @@ const Translate = () => {
 
       <div className="language-box">
         <TranslationResult
-          label={"Translated text"}
+          label="Translated text"
           translationResult={
-            toLanguage !== "undefined" ? translationResult : ""
+            toLanguage !== 'undefined' ? translationResult : ''
           }
           loadingTranslation={loadingTranslation}
         />
       </div>
-      <div className="clear-fix"></div>
+      <div className="clear-fix" />
     </div>
   );
 };

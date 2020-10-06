@@ -1,6 +1,6 @@
-import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import MainContainer from "../components/containers/MainContainer";
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import MainContainer from './containers/MainContainer';
 
 function App() {
   return (

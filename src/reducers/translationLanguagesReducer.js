@@ -1,9 +1,9 @@
-import { Switch } from "react-router-dom";
+import { Switch } from 'react-router-dom';
 import {
   GET_LANGUAGES_FAILURE,
   GET_LANGUAGES_SUCCESS,
   GET_LANGUAGES_INIT,
-} from "../types/translationLanguageTypes";
+} from '../types/translationLanguageTypes';
 
 const INITIAL_STATE = {
   loading: false,

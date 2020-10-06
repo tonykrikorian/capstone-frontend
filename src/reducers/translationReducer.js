@@ -2,7 +2,7 @@ import {
   MAKE_TRANSLATION_INIT,
   MAKE_TRANSLATION_SUCCESS,
   MAKE_TRANSLATION_FAILURE,
-} from "../types/translationTypes";
+} from '../types/translationTypes';
 
 const INITIAL_STATE = {
   loading: false,

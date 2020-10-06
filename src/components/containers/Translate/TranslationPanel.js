@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { TextField } from "@material-ui/core";
-import { Autocomplete } from "@material-ui/lab";
+import React, { useState, useEffect } from 'react';
+import { TextField } from '@material-ui/core';
+import { Autocomplete } from '@material-ui/lab';
 
 const TranslationPanel = ({
   languages,
@@ -19,16 +19,14 @@ const TranslationPanel = ({
       <Autocomplete
         fullWidth
         disabled={enableLanguageSelector}
-        size={"small"}
+        size="small"
         onChange={(event, value) => {
           console.log(value);
 
           setLanguage(value?.code);
         }}
         options={languages}
-        getOptionLabel={(option) => {
-          return `${option.name} (${option.nativeName})`;
-        }}
+        getOptionLabel={(option) => `${option.name} (${option.nativeName})`}
         renderInput={(params) => (
           <TextField {...params} label={label} variant="outlined" />
         )}
