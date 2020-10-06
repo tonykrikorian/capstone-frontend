@@ -1,20 +1,19 @@
 pipeline {
     agent any
     stages {
-        stage("ESLint JS Code"){
+        stage("ESLint JS Code frontend"){
             steps{
-             sh "npm -v"
              sh "npm install"
-             sh "node_modules/.bin/eslint index.js"                
+             sh "node_modules/.bin/eslint src/*.js --fix"                
             }
         }
-        stage("Build Docker image"){
+        stage("Build Docker image frontend"){
             steps{
-                echo "========Building Docker image============"
+                echo "========Building Docker image frontend============"
                 echo "Build number id ${BUILD_NUMBER}"
                 
-                sh ''' docker build -t tkrikoriam/translation-frontend:v${BUILD_NUMBER} . \ 
-                --build-arg getlanguages="internal-service:4000.microservices/translate/languages" \  
+                sh ''' docker build -t 321304165861.dkr.ecr.us-west-2.amazonaws.com/translation-frontend:v${BUILD_NUMBER} . \ 
+                --build-arg getlanguages="http://internal-service:4000.microservices/translate/languages" \  
                 --build-arg urltranslate="http://internal-service:4000.microservices/api/translate" \
                 '''
             }
@@ -28,14 +27,14 @@ pipeline {
                 }
             }
         }
-        stage("Upload Image to ECR"){
+        stage("Upload Image to ECR frontend"){
             steps{
-                echo "========Uploading Docker image========"
+                echo "========Uploading Docker image frontend========"
                 sh ''' 
                     aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 321304165861.dkr.ecr.us-west-2.amazonaws.com
                 '''
                 sh '''
-                    docker push 321304165861.dkr.ecr.us-west-2.amazonaws.com/translation-microservice:v${BUILD_NUMBER}
+                    docker push 321304165861.dkr.ecr.us-west-2.amazonaws.com/translation-frontend:v${BUILD_NUMBER}
                     
                 '''                
             }
@@ -58,11 +57,11 @@ pipeline {
                    aws eks --region us-west-2 update-kubeconfig --name EKSUdacityCapstone
                 '''
                 sh '''
-                    kubectl set image deployment.apps/translation-microservice translation-microservice=321304165861.dkr.ecr.us-west-2.amazonaws.com/translation-microservice:v${BUILD_NUMBER} -n microservices 
+                    kubectl set image deployment.apps/frontend-translator frontend-translator=321304165861.dkr.ecr.us-west-2.amazonaws.com/translation-frontend:v${BUILD_NUMBER} -n frontend-translator 
                     
                  '''
 
-                 sh 'kubectl get all -n microservices'
+                 sh 'kubectl get all -n frontend-translator'
              }
             }
         }
