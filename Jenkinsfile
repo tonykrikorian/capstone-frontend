@@ -12,9 +12,9 @@ pipeline {
                 echo "========Building Docker image frontend============"
                 echo "Build number id ${BUILD_NUMBER}"
                 
-                sh ''' docker build -t 321304165861.dkr.ecr.us-west-2.amazonaws.com/translation-frontend:v${BUILD_NUMBER} . \ 
-                --build-arg getlanguages="http://internal-service:4000.microservices/translate/languages" \  
-                --build-arg urltranslate="http://internal-service:4000.microservices/api/translate" \
+                sh ''' docker build -t 321304165861.dkr.ecr.us-west-2.amazonaws.com/translation-frontend:v${BUILD_NUMBER} . 
+                --build-arg getlanguages="http://internal-service:4000.microservices/translate/languages" 
+                --build-arg urltranslate="http://internal-service:4000.microservices/api/translate" 
                 '''
             }
             post{
