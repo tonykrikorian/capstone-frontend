@@ -21,7 +21,7 @@ export const translateTextAction = (
   dispatch({ type: MAKE_TRANSLATION_INIT });
   axios
     .post(
-      "http://internal-service:4000.microservices/api/translate",
+      "http://internal-service.microservices:4000/api/translate",
       translateTextRequest(message, fromLanguage, toLanguage),
       {}
     )
