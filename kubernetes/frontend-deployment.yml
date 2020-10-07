@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
         - name: frontend-translator
-          image: 321304165861.dkr.ecr.us-west-2.amazonaws.com/translation-frontend:v15
+          image: 321304165861.dkr.ecr.us-west-2.amazonaws.com/translation-frontend:v16
           ports:
             - containerPort: 80
 
