@@ -1,10 +1,17 @@
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: frontend-translator
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   namespace: frontend-translator
   name: frontend-deployment
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: frontend-translator
@@ -16,22 +23,21 @@ spec:
     spec:
       containers:
         - name: frontend-translator
-          image: tkrikoriam/translation-frontend:v5
+          image: 321304165861.dkr.ecr.us-west-2.amazonaws.com/translation-frontend:v15
           ports:
             - containerPort: 80
-          env:
-            - name: REACT_APP_GET_LANGUAGES
-              valueFrom:
-                configMapKeyRef:
-                  name: frontend-configmap
-                  key: getlanguages
-            - name: REACT_APP_TRANSLATE
-              valueFrom:
-                configMapKeyRef:
-                  name: frontend-configmap
-                  key: urltranslate
-            - name: NODE_ENV
-              valueFrom:
-                configMapKeyRef:
-                  name: frontend-configmap
-                  key: node_env
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: translator-frontend-service
+  namespace: frontend-translator
+spec:
+  selector:
+    app: frontend-translator
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
