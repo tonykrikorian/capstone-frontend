@@ -50,18 +50,14 @@ pipeline {
          stage("Deploy to AWS EKS"){
             steps{
              withAWS(region:'us-west-2',credentials:'AWS_EKS'){
-                sh ''' 
-                    aws sts get-caller-identity
-                '''
-                sh ''' 
-                   aws eks --region us-west-2 update-kubeconfig --name EKSUdacityCapstone
-                '''
-                sh '''
-                    kubectl set image deployment.apps/frontend-deployment frontend-translator=321304165861.dkr.ecr.us-west-2.amazonaws.com/translation-frontend:v${BUILD_NUMBER} -n frontend-translator 
-                    
-                 '''
+                
+                sh 'aws sts get-caller-identity'
+                
+                sh 'aws eks --region us-west-2 update-kubeconfig --name EKSUdacityCapstone'
+                
+                sh 'kubectl set image deployment.apps/frontend-deployment frontend-translator=321304165861.dkr.ecr.us-west-2.amazonaws.com/translation-frontend:v${BUILD_NUMBER} -n frontend-translator'
 
-                 sh 'kubectl get all -n frontend-translator'
+                sh 'kubectl get all -n frontend-translator'
              }
             }
         }
