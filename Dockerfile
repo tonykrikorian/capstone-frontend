@@ -20,6 +20,10 @@ RUN npm run build
 
 #Stage execute nginx
 FROM nginx:1.19.2-alpine
+ARG getlanguages
+ARG urltranslate
+ENV REACT_APP_GET_LANGUAGES=$getlanguages
+ENV REACT_APP_TRANSLATE=$urltranslate
 COPY --from=build /app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

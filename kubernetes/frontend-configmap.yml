@@ -9,6 +9,3 @@ data:
   getlanguages: http://internal-service.microservices:4000/api/translate/languages
   urltranslate: http://internal-service.microservices:4000/api/translate
   node_env: production
-
----
-

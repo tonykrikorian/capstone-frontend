@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: frontend-translator
-          image: tkrikoriam/translation-frontend:v7
+          image: tkrikoriam/translation-frontend:v5
           ports:
             - containerPort: 80
           env:
