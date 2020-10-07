@@ -1,9 +1,9 @@
-import axios from 'axios';
+import axios from "axios";
 import {
   MAKE_TRANSLATION_INIT,
   MAKE_TRANSLATION_SUCCESS,
   MAKE_TRANSLATION_FAILURE,
-} from '../types/translationTypes';
+} from "../types/translationTypes";
 
 function translateTextRequest(message, fromLanguage, toLanguage) {
   return {
@@ -16,14 +16,14 @@ function translateTextRequest(message, fromLanguage, toLanguage) {
 export const translateTextAction = (
   message,
   fromLanguage,
-  toLanguage,
+  toLanguage
 ) => async (dispatch) => {
   dispatch({ type: MAKE_TRANSLATION_INIT });
   axios
     .post(
-      process.env.REACT_APP_TRANSLATE,
+      "http://internal-service:4000.microservices/api/translate",
       translateTextRequest(message, fromLanguage, toLanguage),
-      {},
+      {}
     )
     .then((response) => {
       console.log(`response API: ${response.data}`);
@@ -32,5 +32,7 @@ export const translateTextAction = (
         payload: response.data[0].translations[0],
       });
     })
-    .catch((error) => dispatch({ type: MAKE_TRANSLATION_FAILURE, payload: error }));
+    .catch((error) =>
+      dispatch({ type: MAKE_TRANSLATION_FAILURE, payload: error })
+    );
 };
