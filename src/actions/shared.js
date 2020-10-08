@@ -6,18 +6,13 @@ import {
 } from "../types/translationLanguageTypes";
 
 export const getTranslationLanguages = () => async (dispatch) => {
-  dispatch({ type: GET_LANGUAGES_INIT });
-
-  axios
-    .get(
+  try {
+    dispatch({ type: GET_LANGUAGES_INIT });
+    const response = await axios.get(
       "http://internal-service.microservices.svc.cluster.local:4000/api/translate/languages"
-    )
-    .then((response) => {
-      console.log(response);
-      dispatch({ type: GET_LANGUAGES_SUCCESS, payload: response.data });
-    })
-    .catch((error) => {
-      console.log(error);
-      dispatch({ type: GET_LANGUAGES_FAILURE, payload: error });
-    });
+    );
+    dispatch({ type: GET_LANGUAGES_SUCCESS, payload: response.data });
+  } catch (error) {
+    dispatch({ type: GET_LANGUAGES_FAILURE, payload: error });
+  }
 };
