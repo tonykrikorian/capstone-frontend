@@ -1,17 +1,11 @@
-# ---
-# apiVersion: v1
-# kind: Namespace
-# metadata:
-#   name: frontend-translator
-
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: translator-frontend-service
+  name: capstone-frontend-service
 spec:
   selector:
-    app: frontend-translator
+    app: capstone-frontend
   type: LoadBalancer
   ports:
     - protocol: TCP
@@ -22,19 +16,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-deployment
+  name: capstone-frontend
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: frontend-translator
+      app: capstone-frontend
   template:
     metadata:
       labels:
-        app: frontend-translator
+        app: capstone-frontend
     spec:
       containers:
-        - name: frontend-translator
-          image: 321304165861.dkr.ecr.us-west-2.amazonaws.com/translation-frontend:v37
+        - name: capstone-frontend
+          image: 321304165861.dkr.ecr.us-west-2.amazonaws.com/capstone-frontend:v37
           ports:
             - containerPort: 80
