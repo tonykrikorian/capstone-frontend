@@ -29,6 +29,6 @@ spec:
     spec:
       containers:
         - name: capstone-frontend
-          image: 321304165861.dkr.ecr.us-west-2.amazonaws.com/capstone-frontend:v37
+          image: 321304165861.dkr.ecr.us-west-2.amazonaws.com/capstone-frontend:v39
           ports:
             - containerPort: 80
