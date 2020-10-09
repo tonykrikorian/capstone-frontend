@@ -9,7 +9,7 @@ export const getTranslationLanguages = () => async (dispatch) => {
   try {
     dispatch({ type: GET_LANGUAGES_INIT });
     const response = await axios.get(
-      "http://internal-service.microservices.svc.cluster.local:4000/api/translate/languages"
+      "http://internal-service.svc.cluster.local/api/translate/languages"
     );
     dispatch({ type: GET_LANGUAGES_SUCCESS, payload: response.data });
   } catch (error) {
