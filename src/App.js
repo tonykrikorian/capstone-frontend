@@ -1,26 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 /* eslint-disable react/jsx-filename-extension,react/jsx-filename-extension */
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={'./Udacity_logo.png'}  alt="logo" />
         <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
+        
+          <code>Capstone Project Tony Krikorian</code>
+     
+        
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="https://www.udacity.com/"
+          target="blank"
+          rel="Udacity Page"
         >
-          Learn React
+          Udacity Cloud DevOps Engineer Nanodegree Program
+         
         </a>
       </header>
     </div>

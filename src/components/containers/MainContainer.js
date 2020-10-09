@@ -1,6 +1,6 @@
 import React from 'react';
-import Translate from './Translate/Translate';
+import App from '../../App'
 
-const MainContainer = () => <Translate />;
+const MainContainer = () => <App />;
 
 export default MainContainer;
